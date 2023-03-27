@@ -38,6 +38,9 @@ class LoginPage extends StatelessWidget {
                       labelText: "Password",
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       print("Login Button has pressed");
