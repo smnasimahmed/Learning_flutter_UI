@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,13 +16,11 @@ class HomePage extends StatelessWidget {
           child: Text("Catalog App"),
         ),
       ),
-
       body: Center(
         child: Container(
-          child: Text("Wellcome to $days days of flutter $name"),
+          child: Text("This is inside cataloge app", style: TextStyle(fontSize: 20)),
         ),
       ),
-      
       drawer: Drawer(),
     );
   }
