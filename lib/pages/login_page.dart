@@ -1,9 +1,19 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utility/routes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
+  bool changeButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +31,7 @@ class LoginPage extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "Welcome",
+                "Welcome $name",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -35,6 +45,10 @@ class LoginPage extends StatelessWidget {
                     TextFormField(
                       decoration: InputDecoration(
                           hintText: "Enter Username", labelText: "Username"),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      },
                     ),
                     TextFormField(
                       obscureText: true,
@@ -46,15 +60,42 @@ class LoginPage extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, MyRoutes.homeRoute);
-                        },
-                        style: TextButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(300, 30),
-                            textStyle: TextStyle(fontSize: 17)),
-                        child: Text("Login"))
+
+                    InkWell(
+                      onTap: () async { // async used for "await"
+                        setState(() {
+                          changeButton = true;
+                        });
+                        await Future.delayed(Duration(seconds: 1)); //wait for 1 second then go to next line
+                        Navigator.pushNamed(context, MyRoutes.homeRoute);
+                      },
+                      child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        width: changeButton?48 : 300,
+                        height: 42,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: Colors.deepPurpleAccent,
+                          borderRadius: changeButton? BorderRadius.circular(50) : BorderRadius.circular(8),
+                        ),
+                        child: changeButton? Icon(Icons.done_outlined, color: Colors.white,) : Text(
+                          "Login",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    // ElevatedButton(
+                    //     onPressed: () {
+                    //       Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    //     },
+                    //     style: TextButton.styleFrom(
+                    //         foregroundColor: Colors.white,
+                    //         fixedSize: Size(300, 30),
+                    //         textStyle: TextStyle(fontSize: 17)),
+                    //     child: Text("Login"))
                   ],
                 ),
               )
