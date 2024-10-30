@@ -8,6 +8,49 @@ Welcome to the Catalog App! This is a Flutter-based mobile application designed 
 - **Responsive Design:** The app is designed to work well on various screen sizes and orientations.
 - **Dynamic UI:** The login button animates during the login process, enhancing user experience.
 
+## What I Learned
+- **State Management:** I learned about managing state effectively using Stateful Widgets and how to implement user interactions seamlessly.
+- **UI/UX Design:** I gained insights into designing user-friendly interfaces and how to enhance user experience through animations and responsive layouts.
+- **Problem-Solving:** Working on this app improved my problem-solving skills as I encountered various challenges and bugs throughout development.
+- **JSON Encoding and Decoding:** I learned how to encode and decode JSON files, which is essential for handling data in applications.
+
+## Bugs to Fix
+* App Restart for Updates: Currently, the app needs to be restarted to see updates after data changes.
+* Close Button Issue: After performing a CRUD operation, pressing the close button is necessary; otherwise, the app may crash.
+* Time Setting Issues: There are bugs related to setting and displaying time correctly.
+
+## How to Install and Run Locally
+### Prerequisites
+* Java 17: Ensure it is installed. Download from [Oracle Archive](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html).
+* Flutter SDK: [Get Flutter](https://docs.flutter.dev/get-started/install/windows).
+
+### Steps
+#### Clone the repository:
+```
+https://github.com/smnasimahmed/assignment_list.git
+```
+
+#### Install dependencies:
+```
+flutter pub get
+```
+
+#### Ensure Java 17 is the active version:
+```
+java -version
+```
+##### If necessary, set Java 17 manually:
+
+* Linux/Mac:
+```
+export JAVA_HOME=/path-to-java-17
+```
+* Windows: Update the JAVA_HOME environment variable.
+#### Run the app:
+```
+flutter run
+```
+
 
 ## Getting Started
 
