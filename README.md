@@ -27,7 +27,7 @@ Welcome to the Catalog App! This is a Flutter-based mobile application designed 
 ### Steps
 #### Clone the repository:
 ```
-https://github.com/smnasimahmed/assignment_list.git
+https://github.com/smnasimahmed/Learning_flutter_UI.git
 ```
 
 #### Install dependencies:
